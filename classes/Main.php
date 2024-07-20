@@ -92,7 +92,7 @@ class Main
     private function verifySignature(string $request_body, string $signature): bool
     {
         $signature_parts = explode("=", $signature);
-        if ($signature_parts !== 2) {
+        if (count($signature_parts) !== 2) {
             return false;
         }
 
