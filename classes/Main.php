@@ -226,7 +226,7 @@ class Main
             $str = json_encode($str);
         }
 
-        $dir = __DIR__ . LOG_DIR;
+        $dir = __DIR__ . "/.." . LOG_DIR;
         if (!file_exists($dir)) {
             mkdir($dir, 0777);
             chmod($dir, 0777);
