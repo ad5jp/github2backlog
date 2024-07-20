@@ -1,0 +1,7 @@
+<?php
+const LOG_DIR = '/log/';
+const DEBUG = false;
+const BACKLOG_SPACE_URL = 'https://YOURSPACE.backlog.com';
+const BACKLOG_API_KEY = 'YOUR_BACKLOG_API_KEY';
+const BACKLOG_PROJECTS = ['PROJECT_KEY_1', 'PROJECT_KEY_2'];
+const GITHUB_WEBHOOK_SECRET = 'YOUR_GITHUB_WEBHOOK_SECRET';
