@@ -51,7 +51,7 @@ class CommentPREvent implements Event
     public function message(): string
     {
         $message = "";
-        $message .= sprintf("%s が プルリクエストにコメント (%s) \n", $this->author, $this->repository);
+        $message .= sprintf("### %s が プルリクエストにコメント (%s) \n\n", $this->author, $this->repository);
         $message .= sprintf("[%s](%s) \n\n", $this->pr_title, $this->pr_url);
         $message .= $this->comment;
 

@@ -54,7 +54,7 @@ class ClosePREvent implements Event
         $action = ($this->is_merged ? 'マージ' : 'クローズ');
 
         $message = "";
-        $message .= sprintf("%s が プルリクエストを%s (%s) \n", $this->author, $action, $this->repository);
+        $message .= sprintf("### %s が プルリクエストを%s (%s) \n\n", $this->author, $action, $this->repository);
         $message .= sprintf("[%s](%s)", $this->pr_title, $this->pr_url);
 
         return $message;

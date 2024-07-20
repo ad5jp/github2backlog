@@ -50,7 +50,7 @@ class CreatePREvent implements Event
     public function message(): string
     {
         $message = "";
-        $message .= sprintf("%s が プルリクエストを作成 (%s) \n", $this->author, $this->repository);
+        $message .= sprintf("### %s が プルリクエストを作成 (%s) \n\n", $this->author, $this->repository);
         $message .= sprintf("[%s](%s) \n\n", $this->pr_title, $this->pr_url);
         $message .= $this->pr_comment;
 

@@ -45,7 +45,7 @@ class CommitEvent implements Event
     public function message(): string
     {
         $message = "";
-        $message .= sprintf("%s が %s にコミット (%s) \n", $this->author, $this->branch, $this->repository);
+        $message .= sprintf("### %s が %s にコミット (%s) \n\n", $this->author, $this->branch, $this->repository);
         $message .= sprintf("[%s](%s) \n\n", $this->commit_id, $this->commit_url);
         $message .= $this->commit_message;
 
