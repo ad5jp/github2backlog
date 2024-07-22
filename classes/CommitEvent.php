@@ -21,6 +21,14 @@ class CommitEvent implements Event
         foreach ($project_keys as $project_key) {
             $pattern = sprintf("/%s\-[0-9]+/", $project_key);
 
+            if ($this->branch) {
+                if (preg_match_all($pattern, $this->branch, $matches)) {
+                    foreach ($matches as $match) {
+                        $issue_keys[] = $match[0];
+                    }
+                }
+            }
+
             if ($this->commit_message) {
                 if (preg_match_all($pattern, $this->commit_message, $matches)) {
                     foreach ($matches as $match) {
