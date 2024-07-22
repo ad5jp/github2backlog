@@ -113,6 +113,10 @@ class Main
     {
         if (isset($this->payload->commits)) {
             foreach ($this->payload->commits as $commit) {
+                if ($commit->distinct === false) {
+                    // マージにより作られたコミットのためスキップ
+                    continue;
+                }
                 $event = new CommitEvent();
                 $event->author = $commit->author->name ?? null;
                 $event->commit_id = $commit->id ?? null;
