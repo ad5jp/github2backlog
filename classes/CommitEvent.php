@@ -22,9 +22,10 @@ class CommitEvent implements Event
             $pattern = sprintf("/%s\-[0-9]+/", $project_key);
 
             if ($this->commit_message) {
-                preg_match_all($pattern, $this->commit_message, $matches);
-                foreach ($matches as $match) {
-                    $issue_keys[] = $match[0];
+                if (preg_match_all($pattern, $this->commit_message, $matches)) {
+                    foreach ($matches as $match) {
+                        $issue_keys[] = $match[0];
+                    }
                 }
             }
         }

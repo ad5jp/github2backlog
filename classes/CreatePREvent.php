@@ -21,16 +21,18 @@ class CreatePREvent implements Event
             $pattern = sprintf("/%s\-[0-9]+/", $project_key);
 
             if ($this->pr_title) {
-                preg_match_all($pattern, $this->pr_title, $matches);
-                foreach ($matches as $match) {
-                    $issue_keys[] = $match[0];
+                if (preg_match_all($pattern, $this->pr_title, $matches)) {
+                    foreach ($matches as $match) {
+                        $issue_keys[] = $match[0];
+                    }
                 }
             }
 
             if ($this->pr_comment) {
-                preg_match_all($pattern, $this->pr_comment, $matches);
-                foreach ($matches as $match) {
-                    $issue_keys[] = $match[0];
+                if (preg_match_all($pattern, $this->pr_comment, $matches)) {
+                    foreach ($matches as $match) {
+                        $issue_keys[] = $match[0];
+                    }
                 }
             }
         }
